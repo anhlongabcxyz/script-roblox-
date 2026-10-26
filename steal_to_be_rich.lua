@@ -38,7 +38,40 @@ local SG = C("ScreenGui", {Name = "CustomBigMenuGui", ResetOnSpawn = false, Pare
 
 local M, I, B = SG.Main, SG.Ico, SG.Main.MainContainer.Bar
 local Cnt, IP, SP = M.MainContainer.Cnt, M.MainContainer.InfoPanel, M.MainContainer.SettingsPanel
+local BIP = C("Frame", {
+    Name = "BuyItemPanel",
+    Parent = M.MainContainer,
+    Size = UDim2.new(1, -24, 1, -64),
+    Position = UDim2.new(0, 12, 0, 56),
+    BackgroundColor3 = Color3.fromRGB(10, 12, 20),
+    BackgroundTransparency = 0.3,
+    Visible = false,
+    ZIndex = 3
+}, {
+    K(10),
+    S(Color3.fromRGB(255, 255, 255), 1)
+})
 
+C("TextLabel", {
+    Parent = BIP,
+    Size = UDim2.new(1, -24, 0, 30),
+    Position = UDim2.new(0, 12, 0, 10),
+    BackgroundTransparency = 1,
+    Text = "Mua Item",
+    TextColor3 = Color3.new(1, 1, 1),
+    TextSize = 17,
+    Font = Enum.Font.GothamBold,
+    TextXAlignment = Enum.TextXAlignment.Left,
+    ZIndex = 5
+})
+
+local BackBuy = SB(BIP, "< Quay lại", 1, function()
+    BIP.Visible = false
+    Cnt.Visible = true
+end)
+
+BackBuy.Parent.Position = UDim2.new(0, 12, 0, 48)
+BackBuy.Parent.Size = UDim2.new(0, 110, 0, 38)
 local function SB(p, t, o, cb)
 	local f = C("Frame", {Size = UDim2.new(1, -12, 0, 44), BackgroundColor3 = Color3.fromRGB(20, 25, 40), BackgroundTransparency = 0.4, LayoutOrder = o, ZIndex = 5, Parent = p}, {K(10), S(Color3.fromRGB(255, 255, 255), 1)})
 	local b = C("TextButton", {Size = UDim2.new(1, -6, 1, -6), Position = UDim2.new(0, 3, 0, 3), BackgroundColor3 = Color3.fromRGB(12, 15, 25), BackgroundTransparency = 0.4, Text = t, TextColor3 = Color3.fromRGB(255, 255, 255), Font = Enum.Font.Gotham, TextSize = 12, ZIndex = 6, Parent = f}, {K(8), S(Color3.fromRGB(255, 255, 255), 0.9)})
