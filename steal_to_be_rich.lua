@@ -68,6 +68,8 @@ C("TextLabel", {
 local BackBuy = SB(BIP, "< Quay lại", 1, function()
     BIP.Visible = false
     Cnt.Visible = true
+    IP.Visible = false
+    SP.Visible = false
 end)
 
 BackBuy.Parent.Position = UDim2.new(0, 12, 0, 48)
